@@ -1,4 +1,4 @@
-package com.next.security.demo;
+package com.next.security;
 
 
 import org.springframework.boot.SpringApplication;
