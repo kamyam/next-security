@@ -5,7 +5,6 @@ import com.next.security.core.validate.code.image.ImageCodeGenerator;
 import com.next.security.core.validate.code.ValidateCodeGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -14,9 +13,8 @@ import org.springframework.context.annotation.Configuration;
  * @author kamyam
  * @date 2019/6/20 23:21
  */
-@EnableConfigurationProperties(SecurityProperties.class)
 @Configuration
-public class SecurityCoreConfig {
+public class ValidateCodeBeanConfig {
 
     @Autowired
     private SecurityProperties securityProperties;
@@ -26,7 +24,7 @@ public class SecurityCoreConfig {
      */
     @Bean
     @ConditionalOnMissingBean(ImageCodeGenerator.class)
-    public ValidateCodeGenerator imageValidateCodeGenerator() {
+    public ValidateCodeGenerator imageCodeGenerator() {
         ImageCodeGenerator codeGenerator = new ImageCodeGenerator();
         codeGenerator.setSecurityProperties(securityProperties);
         return codeGenerator;

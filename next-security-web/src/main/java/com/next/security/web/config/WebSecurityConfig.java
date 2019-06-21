@@ -2,6 +2,7 @@ package com.next.security.web.config;
 
 import com.next.security.core.constants.SecurityConstants;
 import com.next.security.core.properties.SecurityProperties;
+import com.next.security.core.validate.code.ValidateCodeFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,6 +16,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.preauth.AbstractPreAuthenticatedProcessingFilter;
 import org.springframework.stereotype.Component;
 
 /**
@@ -36,7 +38,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private AuthenticationFailureHandler webAuthenticationFailureHandler;
     @Autowired
     private AuthenticationSuccessHandler webAuthenticationSuccessHandler;
-
+    @Autowired
+    private ValidateCodeFilter validateCodeFilter;
 
     @Component
     public class UserDetailsServiceImpl implements UserDetailsService {
@@ -49,15 +52,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.formLogin()
+        http.addFilterBefore(validateCodeFilter, AbstractPreAuthenticatedProcessingFilter.class)
+                .formLogin()
                 .loginPage(SecurityConstants.DEFAULT_UN_AUTHENTICATION_URL)
-                .loginProcessingUrl(SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL)
+                .loginProcessingUrl(SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL_FORM)
                 .successHandler(webAuthenticationSuccessHandler)
                 .failureHandler(webAuthenticationFailureHandler)
                 .and()
                 //设置访问权限
                 .authorizeRequests()
-                .antMatchers("/error/*", SecurityConstants.DEFAULT_UN_AUTHENTICATION_URL, securityProperties.getWeb().getLoginPage()).permitAll()
+                .antMatchers("/error/*",
+                        SecurityConstants.DEFAULT_UN_AUTHENTICATION_URL,
+                        SecurityConstants.DEFAULT_VALIDATE_CODE_URL_PREFIX + "/*",
+                        securityProperties.getWeb().getLoginPage()).permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .csrf().disable();

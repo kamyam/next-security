@@ -11,7 +11,6 @@ import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
 import org.springframework.security.web.savedrequest.RequestCache;
 import org.springframework.security.web.savedrequest.SavedRequest;
-import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -48,7 +47,7 @@ public class WebSecurityController {
 
         if (savedRequest != null) {
             String targetUrl = savedRequest.getRedirectUrl();
-            logger.info("引发跳转的请求：{}", targetUrl);
+            logger.info("引发跳转的请求:{}", targetUrl);
             if (StringUtils.endsWithIgnoreCase(targetUrl, SecurityConstants.SUFFIX_HTML)) {
                 redirectStrategy.sendRedirect(request, response, securityProperties.getWeb().getLoginPage());
             }

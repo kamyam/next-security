@@ -23,6 +23,7 @@ import java.io.IOException;
 public class WebAuthenticationFailureHandler extends SimpleUrlAuthenticationFailureHandler {
 
     private RequestCache requestCache = new HttpSessionRequestCache();
+
     @Autowired
     private SecurityProperties securityProperties;
 
