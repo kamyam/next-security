@@ -103,7 +103,7 @@ public class ValidateCodeFilter extends OncePerRequestFilter implements Initiali
 	 */
 	private ValidateCodeType getValidateCodeType(HttpServletRequest request) {
 		ValidateCodeType result = null;
-		if (!HttpMethod.GET.matches(request.getMethod())) {
+		if (!HttpMethod.GET.matches(request.getMethod().toUpperCase())) {
 			Set<String> urls = urlMap.keySet();
 			for (String url : urls) {
 				if (pathMatcher.match(url, request.getRequestURI())) {
@@ -113,5 +113,7 @@ public class ValidateCodeFilter extends OncePerRequestFilter implements Initiali
 		}
 		return result;
 	}
+
+
 
 }
