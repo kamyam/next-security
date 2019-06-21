@@ -1,8 +1,7 @@
 package com.next.security.web.config;
 
 import com.next.security.core.constants.SecurityConstants;
-import com.next.security.web.authentication.WebAuthenticationFailureHandler;
-import com.next.security.web.authentication.WebAuthenticationSuccessHandler;
+import com.next.security.core.properties.SecurityProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,7 +11,6 @@ import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
@@ -31,17 +29,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
+
+    @Autowired
+    private SecurityProperties securityProperties;
     @Autowired
     private AuthenticationFailureHandler webAuthenticationFailureHandler;
     @Autowired
     private AuthenticationSuccessHandler webAuthenticationSuccessHandler;
 
+
     @Component
     public class UserDetailsServiceImpl implements UserDetailsService {
-        @Override
-        public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        public UserDetails loadUserByUsername(String username) {
             return new User("user", passwordEncoder().encode("123456"),
-                    true, true, true, false, AuthorityUtils.commaSeparatedStringToAuthorityList("admin"));
+                    true, true, true, true, AuthorityUtils.commaSeparatedStringToAuthorityList("admin"));
         }
     }
 
@@ -50,13 +51,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.formLogin()
                 .loginPage(SecurityConstants.DEFAULT_UN_AUTHENTICATION_URL)
-                .loginProcessingUrl("/authentication/form")
+                .loginProcessingUrl(SecurityConstants.DEFAULT_LOGIN_PROCESSING_URL)
                 .successHandler(webAuthenticationSuccessHandler)
                 .failureHandler(webAuthenticationFailureHandler)
                 .and()
                 //设置访问权限
                 .authorizeRequests()
-                .antMatchers("/error/*", SecurityConstants.DEFAULT_UN_AUTHENTICATION_URL, "/login.html").permitAll()
-                .anyRequest().authenticated();
+                .antMatchers("/error/*", SecurityConstants.DEFAULT_UN_AUTHENTICATION_URL, securityProperties.getWeb().getLoginPage()).permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .csrf().disable();
     }
 }

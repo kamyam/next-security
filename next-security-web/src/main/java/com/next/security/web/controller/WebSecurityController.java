@@ -48,7 +48,7 @@ public class WebSecurityController {
 
         if (savedRequest != null) {
             String targetUrl = savedRequest.getRedirectUrl();
-            logger.info("引发跳转的请求是:" + targetUrl);
+            logger.info("引发跳转的请求：{}", targetUrl);
             if (StringUtils.endsWithIgnoreCase(targetUrl, SecurityConstants.SUFFIX_HTML)) {
                 redirectStrategy.sendRedirect(request, response, securityProperties.getWeb().getLoginPage());
             }

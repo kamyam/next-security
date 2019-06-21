@@ -16,12 +16,12 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-oauth2</artifactId>
         </dependency>
-       <!-- &lt;!&ndash;redis&ndash;&gt;
+        <!--redis-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
-        &lt;!&ndash;jdbc&ndash;&gt;
+        <!--jdbc-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
@@ -31,7 +31,7 @@
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
 
-        &lt;!&ndash;spring-social 相关&ndash;&gt;
+        <!--spring-social 相关-->
         <dependency>
             <groupId>org.springframework.social</groupId>
             <artifactId>spring-social-config</artifactId>
@@ -48,7 +48,7 @@
             <groupId>org.springframework.social</groupId>
             <artifactId>spring-social-web</artifactId>
         </dependency>
-        &lt;!&ndash;commons&ndash;&gt;
+        <!--commons-->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
@@ -71,7 +71,7 @@
             <artifactId>lombok</artifactId>
             <scope>compile</scope>
             <optional>true</optional>
-        </dependency>-->
+        </dependency>
     </dependencies>
 
 </project>
