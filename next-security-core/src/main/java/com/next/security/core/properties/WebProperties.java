@@ -18,5 +18,9 @@ public class WebProperties {
      * 登录成功后跳转的地址，如果设置了此属性，则登录成功后总是会跳到这个地址上。
      */
     private String loginSuccessUrl;
+    /**
+     * '记住我'功能的有效时间，默认1小时
+     */
+    private int rememberMeSeconds = 3600;
 
 }

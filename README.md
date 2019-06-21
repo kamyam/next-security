@@ -1,5 +1,9 @@
 # next-security
 # SpringSecurity流程
-UsernamePasswordAuthenticationFilter -> BasicAuthenticationFilter -> ExceptionTranslationFilter -> FilterSecurityInterceptor
+SecurityContextPersistenceFilter  
+    -> UsernamePasswordAuthenticationFilter 
+    -> BasicAuthenticationFilter 
+        -> ExceptionTranslationFilter  
+            -> FilterSecurityInterceptor
 
 

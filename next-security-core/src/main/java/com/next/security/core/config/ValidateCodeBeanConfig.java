@@ -3,6 +3,9 @@ package com.next.security.core.config;
 import com.next.security.core.properties.SecurityProperties;
 import com.next.security.core.validate.code.image.ImageCodeGenerator;
 import com.next.security.core.validate.code.ValidateCodeGenerator;
+import com.next.security.core.validate.code.sms.DefaultSmsCodeSender;
+import com.next.security.core.validate.code.sms.SmsCodeGenerator;
+import com.next.security.core.validate.code.sms.SmsCodeSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
@@ -29,4 +32,23 @@ public class ValidateCodeBeanConfig {
         codeGenerator.setSecurityProperties(securityProperties);
         return codeGenerator;
     }
+
+    /**
+     * 短信验证码发送器
+     */
+    @Bean
+    @ConditionalOnMissingBean(SmsCodeSender.class)
+    public SmsCodeSender smsCodeSender() {
+        return new DefaultSmsCodeSender();
+    }
+
+    /**
+     * 短信验证码发送器
+     */
+    @Bean
+    @ConditionalOnMissingBean(SmsCodeGenerator.class)
+    public ValidateCodeGenerator smsCodeGenerator() {
+        return new SmsCodeGenerator();
+    }
+
 }

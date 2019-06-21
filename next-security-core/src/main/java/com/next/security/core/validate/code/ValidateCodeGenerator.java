@@ -10,6 +10,7 @@ import org.springframework.web.context.request.ServletWebRequest;
  * @date 2019/6/20 23:20
  */
 public interface ValidateCodeGenerator {
+
     String NAME_SUFFIX = "CodeGenerator";
     /**
      * 生成校验码

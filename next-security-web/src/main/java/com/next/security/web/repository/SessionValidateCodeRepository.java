@@ -1,4 +1,4 @@
-package com.next.security.web.validate.code;
+package com.next.security.web.repository;
 
 import com.next.security.core.validate.code.ValidateCode;
 import com.next.security.core.validate.code.ValidateCodeType;

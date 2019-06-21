@@ -1,12 +1,7 @@
 package com.next.security.core.config;
 
 import com.next.security.core.properties.SecurityProperties;
-import com.next.security.core.validate.code.image.ImageCodeGenerator;
-import com.next.security.core.validate.code.ValidateCodeGenerator;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -18,17 +13,5 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class SecurityCoreConfig {
 
-    @Autowired
-    private SecurityProperties securityProperties;
 
-    /**
-     * 图片验证码图片生成器
-     */
-    @Bean
-    @ConditionalOnMissingBean(ImageCodeGenerator.class)
-    public ValidateCodeGenerator imageValidateCodeGenerator() {
-        ImageCodeGenerator codeGenerator = new ImageCodeGenerator();
-        codeGenerator.setSecurityProperties(securityProperties);
-        return codeGenerator;
-    }
 }
