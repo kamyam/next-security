@@ -1,4 +1,4 @@
-package com.next.security.core.config.security;
+package com.next.security.core.validate.code;
 
 import com.next.security.core.validate.code.ValidateCodeFilter;
 import org.springframework.beans.factory.annotation.Autowired;

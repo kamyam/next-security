@@ -1,4 +1,4 @@
-package com.next.security.core.config;
+package com.next.security.core.validate.code;
 
 import com.next.security.core.properties.SecurityProperties;
 import com.next.security.core.validate.code.image.ImageCodeGenerator;

@@ -1,8 +1,8 @@
 package com.next.security.web.config;
 
-import com.next.security.core.config.security.FormLoginSecurityConfig;
-import com.next.security.core.config.security.SmsCodeSecurityConfig;
-import com.next.security.core.config.security.ValidateCodeSecurityConfig;
+import com.next.security.core.authentication.FormLoginSecurityConfig;
+import com.next.security.core.validate.code.sms.SmsCodeSecurityConfig;
+import com.next.security.core.validate.code.ValidateCodeSecurityConfig;
 import com.next.security.core.constants.SecurityConstants;
 import com.next.security.core.properties.SecurityProperties;
 import org.springframework.beans.factory.annotation.Autowired;

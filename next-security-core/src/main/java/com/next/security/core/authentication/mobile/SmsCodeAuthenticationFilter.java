@@ -1,4 +1,4 @@
-package com.next.security.core.authentication;
+package com.next.security.core.authentication.mobile;
 
 import com.next.security.core.constants.SecurityConstants;
 import org.springframework.security.authentication.AuthenticationServiceException;

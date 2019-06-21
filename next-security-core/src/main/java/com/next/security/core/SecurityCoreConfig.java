@@ -1,4 +1,4 @@
-package com.next.security.core.config;
+package com.next.security.core;
 
 import com.next.security.core.properties.SecurityProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
