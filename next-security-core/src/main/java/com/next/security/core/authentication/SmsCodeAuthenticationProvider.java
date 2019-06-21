@@ -1,4 +1,4 @@
-package com.next.security.core.authentication.mobile;
+package com.next.security.core.authentication;
 
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.InternalAuthenticationServiceException;
