@@ -30,8 +30,7 @@ public class WebAuthenticationFailureHandler extends SimpleUrlAuthenticationFail
 
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
-        String username = request.getParameter("username");
-        logger.info(username + "：登录失败，错误信息：" + exception.getLocalizedMessage());
+        logger.info("登录失败，错误信息：" + exception.getLocalizedMessage());
         super.onAuthenticationFailure(request, response, exception);
 
     }
