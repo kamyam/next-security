@@ -11,19 +11,19 @@ public interface SecurityConstants {
     /**
      * 自定义登录请求
      */
-    String DEFAULT_UN_AUTHENTICATION_URL = "/authentication/require";
+    String DEFAULT_UN_AUTHENTICATION_URL = "/auth/require";
     /**
      * 默认的用户名密码登录请求处理url，form.action的值
      */
-    String DEFAULT_LOGIN_PROCESSING_URL_FORM = "/authentication/form";
+    String DEFAULT_LOGIN_PROCESSING_URL_FORM = "/auth/form";
     /**
      * 默认的手机验证码登录请求处理url
      */
-    String DEFAULT_LOGIN_PROCESSING_URL_MOBILE = "/authentication/mobile";
+    String DEFAULT_LOGIN_PROCESSING_URL_MOBILE = "/auth/mobile";
     /**
      * 默认的OPENID登录请求处理url
      */
-    String DEFAULT_LOGIN_PROCESSING_URL_OPENID = "/authentication/openid";
+    String DEFAULT_LOGIN_PROCESSING_URL_OPENID = "/auth/openid";
 
 
     //-------------------------验证码常量-----------------------------------
@@ -53,7 +53,8 @@ public interface SecurityConstants {
     String DEFAULT_PARAMETER_NAME_MOBILE = "mobile";
 
 
-    //-------------------------其他常量-----------------------------------
+
+
     String SUFFIX_HTML = ".html";
 
 

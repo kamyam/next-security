@@ -54,7 +54,7 @@ public class SocialConfig extends SocialConfigurerAdapter {
 	 * 社交登录配置类，供浏览器或app模块引入设计登录配置用。
 	 */
 	@Bean
-	public SpringSocialConfigurer imoocSocialSecurityConfig() {
+	public SpringSocialConfig springSocialConfig() {
 		String filterProcessesUrl = securityProperties.getSocial().getFilterProcessesUrl();
 		SpringSocialConfig configurer = new SpringSocialConfig(filterProcessesUrl);
 		configurer.signupUrl(securityProperties.getWeb().getSignUpUrl());

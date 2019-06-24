@@ -1,4 +1,4 @@
-package com.next.security.core.authentication;
+package com.next.security.core.config;
 
 import com.next.security.core.constants.SecurityConstants;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,5 +1,5 @@
 server:
-  port: 5401
+  port: 80
 
 spring:
   datasource:
@@ -7,3 +7,12 @@ spring:
     url: jdbc:mysql://localhost:3306/sandy?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC&useSSL=false
     username: root
     password: root
+
+
+
+next:
+  security:
+    social:
+      weixin:
+        app-id: wx586cc42f5ebaebdd
+        app-secret: c93bf5337544ef6e435fe74462c2e05a

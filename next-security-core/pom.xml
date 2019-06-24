@@ -11,7 +11,7 @@
 
     <artifactId>next-security-core</artifactId>
     <dependencies>
-        <!--spring-security + spring-security-oauth2-->
+        <!--spring-service + spring-service-oauth2-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-oauth2</artifactId>

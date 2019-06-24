@@ -35,7 +35,7 @@ public class WeixinAdapter implements ApiAdapter<Weixin> {
 		WeixinUserInfo profile = api.getUserInfo(openId);
 		values.setProviderUserId(profile.getOpenid());
 		values.setDisplayName(profile.getNickname());
-		values.setImageUrl(profile.getHeadimgurl());
+		values.setImageUrl(profile.getHeadImgUrl());
 	}
 
 
