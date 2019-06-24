@@ -3,7 +3,6 @@ package com.next.security.core.validate.code.sms;
 import com.next.security.core.constants.SecurityConstants;
 import com.next.security.core.validate.code.AbstractValidateCodeProcessor;
 import com.next.security.core.validate.code.ValidateCode;
-import com.next.security.core.validate.code.image.ImageCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.ServletRequestUtils;

@@ -3,7 +3,7 @@ package com.next.security.core.properties;
 import lombok.Data;
 
 /**
- * security-web配置类
+ * web配置类
  *
  * @author kamyam
  * @date 2019/6/20 23:19

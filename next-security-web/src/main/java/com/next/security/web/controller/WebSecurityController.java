@@ -44,7 +44,6 @@ public class WebSecurityController {
     public String requireAuthentication(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
         SavedRequest savedRequest = requestCache.getRequest(request, response);
-
         if (savedRequest != null) {
             String targetUrl = savedRequest.getRedirectUrl();
             logger.info("引发跳转的请求:{}", targetUrl);

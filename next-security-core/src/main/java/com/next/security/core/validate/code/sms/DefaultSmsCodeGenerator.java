@@ -14,7 +14,7 @@ import org.springframework.web.context.request.ServletWebRequest;
  * @date 2019/6/20 23:20
  */
 @Data
-public class SmsCodeGenerator implements ValidateCodeGenerator {
+public class DefaultSmsCodeGenerator implements ValidateCodeGenerator {
 
     /**
      * 系统配置

@@ -34,29 +34,6 @@ public abstract class AbstractValidateCodeProcessor<V extends ValidateCode> impl
     }
 
     /**
-     * 生成校验码
-     */
-    @SuppressWarnings("unchecked")
-    private V generate(ServletWebRequest request) {
-        String type = getValidateCodeType().toString().toLowerCase();
-        String generatorName = type + ValidateCodeGenerator.NAME_SUFFIX;
-        ValidateCodeGenerator validateCodeGenerator = validateCodeGenerators.get(generatorName);
-        if (validateCodeGenerator == null) {
-            throw new ValidateCodeException("验证码生成器" + generatorName + "不存在");
-        }
-        return (V) validateCodeGenerator.generate(request);
-    }
-
-    /**
-     * 保存校验码
-     */
-    private void save(ServletWebRequest request, V validateCode) {
-        ValidateCode code = new ValidateCode(validateCode.getCode(), validateCode.getExpireTime());
-        validateCodeRepository.save(request, code, getValidateCodeType());
-    }
-
-
-    /**
      * 验证是否有效
      */
     @Override
@@ -96,6 +73,33 @@ public abstract class AbstractValidateCodeProcessor<V extends ValidateCode> impl
 
     }
 
+    /**
+     * 发送校验码，由子类实现
+     */
+    protected abstract void send(ServletWebRequest request, V validateCode) throws Exception;
+
+    /**
+     * 生成校验码
+     */
+    @SuppressWarnings("unchecked")
+    private V generate(ServletWebRequest request) {
+        String type = getValidateCodeType().toString().toLowerCase();
+        String generatorName = type + ValidateCodeGenerator.NAME_SUFFIX;
+        ValidateCodeGenerator validateCodeGenerator = validateCodeGenerators.get(generatorName);
+        if (validateCodeGenerator == null) {
+            throw new ValidateCodeException("验证码生成器" + generatorName + "不存在");
+        }
+        return (V) validateCodeGenerator.generate(request);
+    }
+
+    /**
+     * 保存校验码
+     */
+    private void save(ServletWebRequest request, V validateCode) {
+        ValidateCode code = new ValidateCode(validateCode.getCode(), validateCode.getExpireTime());
+        validateCodeRepository.save(request, code, getValidateCodeType());
+    }
+
 
     /**
      * 根据校验码的类型
@@ -104,10 +108,5 @@ public abstract class AbstractValidateCodeProcessor<V extends ValidateCode> impl
         String type = StringUtils.substringBefore(getClass().getSimpleName(), ValidateCodeProcessor.NAME_SUFFIX);
         return ValidateCodeType.valueOf(type.toUpperCase());
     }
-
-    /**
-     * 发送校验码，由子类实现
-     */
-    protected abstract void send(ServletWebRequest request, V validateCode) throws Exception;
 
 }

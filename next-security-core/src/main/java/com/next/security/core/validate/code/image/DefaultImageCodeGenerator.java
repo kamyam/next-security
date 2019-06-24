@@ -17,7 +17,7 @@ import java.util.Random;
  * @date 2019/6/20 23:20
  */
 @Data
-public class ImageCodeGenerator implements ValidateCodeGenerator {
+public class DefaultImageCodeGenerator implements ValidateCodeGenerator {
 
     /**
      * 系统配置

@@ -5,13 +5,13 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * Security配置类
+ *
  * @author kamyam
  * @date 2019/6/20 23:20
  */
 @Data
 @ConfigurationProperties(prefix = "next.security")
 public class SecurityProperties {
-
     /**
      * Web配置
      */
