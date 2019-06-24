@@ -1,6 +1,6 @@
 package com.next.security.core.validate.code.image;
 
-import com.next.security.core.validate.code.AbstractValidateCodeProcessor;
+import com.next.security.core.validate.code.support.AbstractValidateCodeProcessor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.ServletWebRequest;
 

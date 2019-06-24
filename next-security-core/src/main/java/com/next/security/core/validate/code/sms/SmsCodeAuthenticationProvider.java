@@ -1,4 +1,4 @@
-package com.next.security.core.validate.code.sms.authentication;
+package com.next.security.core.validate.code.sms;
 
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.InternalAuthenticationServiceException;

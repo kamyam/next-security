@@ -2,7 +2,7 @@ package com.next.security.core.validate.code.image;
 
 import com.next.security.core.constants.SecurityConstants;
 import com.next.security.core.properties.SecurityProperties;
-import com.next.security.core.validate.code.ValidateCodeGenerator;
+import com.next.security.core.validate.code.support.ValidateCodeGenerator;
 import lombok.Data;
 import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.context.request.ServletWebRequest;
@@ -64,10 +64,6 @@ public class DefaultImageCodeGenerator implements ValidateCodeGenerator {
 
     /**
      * 生成随机背景条纹
-     *
-     * @param fc
-     * @param bc
-     * @return
      */
     private Color getRandColor(int fc, int bc) {
         Random random = new Random();

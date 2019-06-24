@@ -1,8 +1,8 @@
 package com.next.security.web.repository;
 
-import com.next.security.core.validate.code.ValidateCode;
-import com.next.security.core.validate.code.ValidateCodeType;
-import com.next.security.core.validate.code.ValidateCodeRepository;
+import com.next.security.core.validate.code.support.ValidateCode;
+import com.next.security.core.enums.ValidateCodeType;
+import com.next.security.core.validate.code.support.ValidateCodeRepository;
 import org.springframework.social.connect.web.HttpSessionSessionStrategy;
 import org.springframework.social.connect.web.SessionStrategy;
 import org.springframework.stereotype.Component;

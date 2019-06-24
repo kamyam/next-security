@@ -1,7 +1,5 @@
 package com.next.security.core.validate.code.sms;
 
-import com.next.security.core.validate.code.sms.authentication.SmsCodeAuthenticationFilter;
-import com.next.security.core.validate.code.sms.authentication.SmsCodeAuthenticationProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.SecurityConfigurerAdapter;

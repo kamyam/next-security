@@ -23,4 +23,9 @@ public class WebProperties {
      */
     private int rememberMeSeconds = 3600;
 
+    /**
+     * 社交登录，如果需要用户注册，跳转的页面
+     */
+    private String signUpUrl = "/imooc-signUp.html";
+
 }

@@ -1,5 +1,6 @@
-package com.next.security.core.validate.code;
+package com.next.security.core.validate.code.support;
 
+import com.next.security.core.enums.ValidateCodeType;
 import org.springframework.web.context.request.ServletWebRequest;
 
 /**

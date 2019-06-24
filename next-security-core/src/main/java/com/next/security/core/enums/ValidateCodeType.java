@@ -1,4 +1,4 @@
-package com.next.security.core.validate.code;
+package com.next.security.core.enums;
 
 
 import com.next.security.core.constants.SecurityConstants;
@@ -7,7 +7,7 @@ import com.next.security.core.constants.SecurityConstants;
  * 
  * 校验码类型
  * 
- * @author zhailiang
+ * @author kamyam
  *
  */
 public enum ValidateCodeType {

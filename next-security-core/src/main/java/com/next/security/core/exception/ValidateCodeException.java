@@ -1,4 +1,4 @@
-package com.next.security.core.validate.code;
+package com.next.security.core.exception;
 
 import org.springframework.security.core.AuthenticationException;
 

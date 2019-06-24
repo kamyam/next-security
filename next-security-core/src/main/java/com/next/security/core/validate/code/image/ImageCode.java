@@ -1,7 +1,7 @@
 package com.next.security.core.validate.code.image;
 
 
-import com.next.security.core.validate.code.ValidateCode;
+import com.next.security.core.validate.code.support.ValidateCode;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

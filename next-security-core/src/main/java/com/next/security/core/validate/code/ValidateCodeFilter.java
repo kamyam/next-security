@@ -2,6 +2,8 @@ package com.next.security.core.validate.code;
 
 import com.next.security.core.constants.SecurityConstants;
 import com.next.security.core.properties.SecurityProperties;
+import com.next.security.core.exception.ValidateCodeException;
+import com.next.security.core.enums.ValidateCodeType;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,5 +1,7 @@
-package com.next.security.core.validate.code;
+package com.next.security.core.validate.code.support;
 
+import com.next.security.core.enums.ValidateCodeType;
+import com.next.security.core.exception.ValidateCodeException;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.ServletRequestBindingException;

@@ -1,8 +1,8 @@
 package com.next.security.core.validate.code.sms;
 
 import com.next.security.core.properties.SecurityProperties;
-import com.next.security.core.validate.code.ValidateCode;
-import com.next.security.core.validate.code.ValidateCodeGenerator;
+import com.next.security.core.validate.code.support.ValidateCode;
+import com.next.security.core.validate.code.support.ValidateCodeGenerator;
 import lombok.Data;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;

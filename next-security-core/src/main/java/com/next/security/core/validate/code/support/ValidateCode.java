@@ -1,4 +1,4 @@
-package com.next.security.core.validate.code;
+package com.next.security.core.validate.code.support;
 
 
 import lombok.Data;
