@@ -1,5 +1,6 @@
-package com.next.security.core.social.support;
+package com.next.security.core.social;
 
+import com.next.security.core.social.support.SocialAuthenticationFilterPostProcessor;
 import org.springframework.social.security.SocialAuthenticationFilter;
 import org.springframework.social.security.SpringSocialConfigurer;
 
@@ -9,13 +10,13 @@ import org.springframework.social.security.SpringSocialConfigurer;
  * @author kamyam
  *
  */
-public class ImoocSpringSocialConfigurer extends SpringSocialConfigurer {
+public class SpringSocialConfig extends SpringSocialConfigurer {
 
 	private String filterProcessesUrl;
 
 	private SocialAuthenticationFilterPostProcessor socialAuthenticationFilterPostProcessor;
 
-	public ImoocSpringSocialConfigurer(String filterProcessesUrl) {
+	public SpringSocialConfig(String filterProcessesUrl) {
 		this.filterProcessesUrl = filterProcessesUrl;
 	}
 

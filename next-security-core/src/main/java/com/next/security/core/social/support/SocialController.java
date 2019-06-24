@@ -1,11 +1,9 @@
-package com.next.security.core.social;
+package com.next.security.core.social.support;
 
-import com.next.security.core.social.support.SocialUserInfo;
 import org.springframework.social.connect.Connection;
 
 /**
  * @author kamyam
- *
  */
 public abstract class SocialController {
 
@@ -17,7 +15,7 @@ public abstract class SocialController {
 		userInfo.setProviderId(connection.getKey().getProviderId());
 		userInfo.setProviderUserId(connection.getKey().getProviderUserId());
 		userInfo.setNickname(connection.getDisplayName());
-		userInfo.setHeadimg(connection.getImageUrl());
+		userInfo.setHeadImg(connection.getImageUrl());
 		return userInfo;
 	}
 	

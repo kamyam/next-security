@@ -1,7 +1,6 @@
 package com.next.security.core.social;
 
 import com.next.security.core.properties.SecurityProperties;
-import com.next.security.core.social.support.ImoocSpringSocialConfigurer;
 import com.next.security.core.social.support.SocialAuthenticationFilterPostProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -45,7 +44,6 @@ public class SocialConfig extends SocialConfigurerAdapter {
 	public UsersConnectionRepository getUsersConnectionRepository(ConnectionFactoryLocator connectionFactoryLocator) {
 		JdbcUsersConnectionRepository repository = new JdbcUsersConnectionRepository(dataSource,
 				connectionFactoryLocator, Encryptors.noOpText());
-		repository.setTablePrefix("imooc_");
 		if(connectionSignUp != null) {
 			repository.setConnectionSignUp(connectionSignUp);
 		}
@@ -58,7 +56,7 @@ public class SocialConfig extends SocialConfigurerAdapter {
 	@Bean
 	public SpringSocialConfigurer imoocSocialSecurityConfig() {
 		String filterProcessesUrl = securityProperties.getSocial().getFilterProcessesUrl();
-		ImoocSpringSocialConfigurer configurer = new ImoocSpringSocialConfigurer(filterProcessesUrl);
+		SpringSocialConfig configurer = new SpringSocialConfig(filterProcessesUrl);
 		configurer.signupUrl(securityProperties.getWeb().getSignUpUrl());
 		configurer.setSocialAuthenticationFilterPostProcessor(socialAuthenticationFilterPostProcessor);
 		return configurer;

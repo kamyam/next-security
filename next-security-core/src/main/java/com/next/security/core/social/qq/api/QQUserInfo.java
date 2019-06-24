@@ -1,12 +1,12 @@
-/**
- * 
- */
 package com.next.security.core.social.qq.api;
+
+import lombok.Data;
 
 /**
  * @author kamyam
  *
  */
+@Data
 public class QQUserInfo {
 	
 	/**
@@ -86,7 +86,7 @@ public class QQUserInfo {
 	 */
 	private String is_yellow_year_vip;
 	
-	
+
 	public String getRet() {
 		return ret;
 	}

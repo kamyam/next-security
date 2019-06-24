@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.next.security.core.social.qq.api;
 
 /**
